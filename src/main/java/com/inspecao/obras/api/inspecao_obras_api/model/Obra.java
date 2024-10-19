@@ -1,8 +1,11 @@
-package com.inspecao.obras.api.inspecao_obras_api;
+package com.inspecao.obras.api.inspecao_obras_api.model;
 
-import jakarta.annotation.Generated;
+import com.inspecao.obras.api.inspecao_obras_api.constants.Periodicidade;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -23,6 +26,10 @@ public class Obra {
    public String nome;
 
    public String endereco;
+   
+   @Column(nullable = false)
+   @Enumerated(EnumType.STRING)
+   public Periodicidade periodoinspecoes;
 
 
 }
