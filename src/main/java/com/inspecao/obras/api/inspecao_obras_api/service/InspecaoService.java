@@ -13,7 +13,7 @@ import com.inspecao.obras.api.inspecao_obras_api.repository.InspecaoRepository;
 public class InspecaoService {
    
     @Autowired
-    private InspecaoRepository inspecaoRepository;
+    private static InspecaoRepository inspecaoRepository;
 
     public Inspecao salvarInspecao(Inspecao inspecao){
         return inspecaoRepository.save(inspecao);
@@ -33,11 +33,11 @@ public class InspecaoService {
        inspecaoRepository.deleteById(id);
 
     }
-    public List<Inspecao> filtrarInspecoesPelaObra(Long obraId){
+    public static List<Inspecao> filtrarInspecoesPelaObra(Long obraId){
         return inspecaoRepository.findByObra_Id(obraId);
 
     }
-    public List<Inspecao> filtrarInspecoesPeloStatus(String status){
+    public static List<Inspecao> filtrarInspecoesPeloStatus(String status){
         return inspecaoRepository.findByStatus(status);
     }
 
